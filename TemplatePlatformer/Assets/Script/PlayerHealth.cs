@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (collision.gameObject.tag == "Enemy")
+        {
             TakeDamage(1);
         }
     }
