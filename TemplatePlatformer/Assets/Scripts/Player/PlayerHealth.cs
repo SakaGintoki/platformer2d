@@ -23,7 +23,8 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    //awalnya void takedamage
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
