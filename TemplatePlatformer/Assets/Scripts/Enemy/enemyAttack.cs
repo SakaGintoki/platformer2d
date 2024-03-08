@@ -12,7 +12,6 @@ public class enemyAttack : MonoBehaviour
 
     [Header("Ranged Attack")]
     [SerializeField] private Transform firepoint;
-    [SerializeField] private GameObject[] fireballs;
     
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
@@ -25,6 +24,9 @@ public class enemyAttack : MonoBehaviour
     private Animator anim;
     private Health playerHealth;
 
+
+    public enemyProjectile projectilePrefab;
+
     private enemyPatrol enemyPatrol;
 
     private void Awake()
@@ -35,15 +37,16 @@ public class enemyAttack : MonoBehaviour
 
     private void Update()
     {
-        cooldownTimer = Time.deltaTime;
+        cooldownTimer += Time.deltaTime;
 
         //Attack only when player in sight?
         if (PlayerInSight())
         {
+            
             if (cooldownTimer >= attackCooldown)
             {
+                anim.SetTrigger("attack");
                 cooldownTimer = 0;
-                anim.SetTrigger("rangedAttack");
             }
         }
 
@@ -55,19 +58,7 @@ public class enemyAttack : MonoBehaviour
 
     private void RangedAttack()
     {
-        cooldownTimer = 0;
-        fireballs[FindFireball()].transform.position = firepoint.position;
-        fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-    }
-
-    private int FindFireball()
-    {
-        for (int i = 0; i < fireballs.Length ; i++)
-        {
-            if (!fireballs[i].activeInHierarchy)
-                return i;
-        }
-        return 0;
+        Instantiate(projectilePrefab, firepoint.position, transform.rotation);
     }
 
     private bool PlayerInSight()
