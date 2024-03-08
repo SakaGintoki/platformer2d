@@ -23,7 +23,7 @@ public class enemyAttack : MonoBehaviour
     private float cooldownTimer = Mathf.Infinity;
 
     private Animator anim;
-    private PlayerHealth playerHealth;
+    private Health playerHealth;
 
     private enemyPatrol enemyPatrol;
 
