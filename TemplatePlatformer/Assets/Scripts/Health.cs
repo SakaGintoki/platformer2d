@@ -52,6 +52,7 @@ public class Health : MonoBehaviour
                     component.enabled = false;
 
                 dead = true;
+                Destroy(gameObject);
             }
         }
     }

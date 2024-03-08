@@ -47,7 +47,6 @@ public class enemyPatrol : MonoBehaviour
     private void DirectionChange()
     {
         movingLeft = !movingLeft;
-
     }
 
     private void MoveInDirection(int _direction)

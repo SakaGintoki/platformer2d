@@ -24,7 +24,7 @@ public class enemyAttack : MonoBehaviour
     private Animator anim;
     private Health playerHealth;
 
-
+    [Header("Projectile Prefab")]
     public enemyProjectile projectilePrefab;
 
     private enemyPatrol enemyPatrol;
@@ -42,7 +42,6 @@ public class enemyAttack : MonoBehaviour
         //Attack only when player in sight?
         if (PlayerInSight())
         {
-            
             if (cooldownTimer >= attackCooldown)
             {
                 anim.SetTrigger("attack");
@@ -50,7 +49,7 @@ public class enemyAttack : MonoBehaviour
             }
         }
 
-        if(enemyPatrol != null)
+        if(enemyPatrol != null) //If no enemy in sight, move
         {
             enemyPatrol.enabled = !PlayerInSight();
         }
