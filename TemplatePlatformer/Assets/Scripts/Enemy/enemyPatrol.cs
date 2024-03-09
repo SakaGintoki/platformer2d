@@ -16,6 +16,9 @@ public class enemyPatrol : MonoBehaviour
     private Vector3 initScale;
     private bool movingLeft;
 
+    private int currentDirection = 1;
+
+
     private void Awake()
     {
         initScale = enemy.localScale;
@@ -44,6 +47,14 @@ public class enemyPatrol : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+            Health health = collision.gameObject.GetComponent<Health>();
+
+            if (collision.gameObject.CompareTag("Player"))
+                health.TakeDamage(1);
+    }
+
     private void DirectionChange()
     {
         movingLeft = !movingLeft;
@@ -54,8 +65,16 @@ public class enemyPatrol : MonoBehaviour
         //Membuat arah musuh 
         enemy.localScale = new Vector3(-Mathf.Abs(initScale.x) * _direction,
             initScale.y, initScale.z);
+
+        currentDirection = _direction;
+
         //Gerak kearah tersebut
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed
             , enemy.position.y, enemy.position.z);
+    }
+
+    public int GetCurrentDirection() //untuk mengetahui menghadap mana yang akan digunakan pada script enemyAttack -> enemyProjectile
+    {
+        return currentDirection;
     }
 }

@@ -6,20 +6,27 @@ using UnityEngine;
 public class enemyProjectile : MonoBehaviour
 {
     [SerializeField] private float speed;
+    private Vector3 direction;
+
+    // Set the direction of the projectile when it's instantiated
+    public void SetDirection(Vector3 _direction)
+    {
+        direction = _direction;
+    }
 
     void Update()
     {
-        transform.position += -transform.right * Time.deltaTime * speed;
+        // Move the projectile in the set direction
+        transform.Translate(direction.normalized * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Health health = collision.gameObject.GetComponent<Health>();
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
             health.TakeDamage(1);
 
-        //How to Damage playerrrrr
         Destroy(gameObject);
     }
 }

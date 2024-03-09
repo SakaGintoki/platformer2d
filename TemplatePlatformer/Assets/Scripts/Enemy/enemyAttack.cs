@@ -57,7 +57,15 @@ public class enemyAttack : MonoBehaviour
 
     private void RangedAttack()
     {
-        Instantiate(projectilePrefab, firepoint.position, transform.rotation);
+        // Get the current facing direction from enemyPatrol script
+        int currentDirection = enemyPatrol.GetCurrentDirection();
+
+        // Determine the direction based on the enemy's facing direction
+        Vector3 direction = currentDirection > 0 ? Vector3.right : Vector3.left;
+
+        enemyProjectile projectile = Instantiate(projectilePrefab, firepoint.position, transform.rotation);
+        // Set the direction of the projectile to match the enemy's facing direction
+        projectile.SetDirection(direction);
     }
 
     private bool PlayerInSight()
