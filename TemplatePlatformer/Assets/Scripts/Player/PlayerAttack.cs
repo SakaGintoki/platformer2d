@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
-
+    private Mana mana;
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -13,12 +13,22 @@ public class PlayerAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        mana = GetComponent<Mana>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.canAttack())
+        {
             Attack();
+            if (mana == null)
+            {
+                Debug.LogError("Mana component not found on the player.");
+            }else
+            {
+                mana.DecreaseMana(1);
+            }
+        }
 
         cooldownTimer += Time.deltaTime;
     }
