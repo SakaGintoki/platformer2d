@@ -22,14 +22,6 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            TakeDamage(1);
-        }
-    }
-
     //awalnya void takedamage
     public void TakeDamage(int damage)
     {
