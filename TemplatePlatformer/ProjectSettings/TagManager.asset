@@ -7,11 +7,12 @@ TagManager:
   - Ground
   - Enemy
   - Projectile
+  - Cliff
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - background
   - Water
   - UI
   - ground
