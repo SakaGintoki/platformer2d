@@ -4,46 +4,44 @@ using UnityEngine;
 
 public class enemyPatrol : MonoBehaviour
 {
-    [Header("Patrol Points")]
-    [SerializeField] private Transform leftEdge;
-    [SerializeField] private Transform rightEdge;
-
     [Header("Enemy")]
     [SerializeField] private Transform enemy;
 
     [Header("Movement parameters")]
-    [SerializeField] private float speed;
-    private Vector3 initScale;
-    private bool movingLeft;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private int pindahKanan = 3; //test
+    [SerializeField] private int pindahKiri = 3; //test
 
-    private int currentDirection = 1;
-
+    private Vector3 initPosition; //test
+    private Vector3 leftBound; //test
+    private Vector3 rightBound; //test
+    private Vector3 initScale; //test
+    private bool movingRight = true; // Mulai dengan bergerak ke kanan
 
     private void Awake()
     {
+        initPosition = enemy.position;
         initScale = enemy.localScale;
+
+        leftBound = initPosition - new Vector3(pindahKiri, 0, 0);
+        rightBound = initPosition + new Vector3(pindahKanan, 0, 0);
     }
 
     private void Update()
     {
-        if (movingLeft)
+        if (movingRight)
         {
-            if (enemy.position.x >= leftEdge.position.x)
-                MoveInDirection(-1);
+            if (enemy.position.x <= rightBound.x)
+                MoveInDirection(Vector3.right, pindahKanan);
             else
-            {
                 DirectionChange();
-            }
-
         }
         else
         {
-            if (enemy.position.x <= rightEdge.position.x)
-                MoveInDirection(1);
+            if (enemy.position.x >= leftBound.x)
+                MoveInDirection(Vector3.left, pindahKiri);
             else
-            {
                 DirectionChange();
-            }
         }
     }
 
@@ -57,24 +55,21 @@ public class enemyPatrol : MonoBehaviour
 
     private void DirectionChange()
     {
-        movingLeft = !movingLeft;
+        movingRight = !movingRight;
     }
 
-    private void MoveInDirection(int _direction)
+    private void MoveInDirection(Vector3 direction, int distance)
     {
-        //Membuat arah musuh 
-        enemy.localScale = new Vector3(-Mathf.Abs(initScale.x) * _direction,
+        // Mengatur skala untuk menghadap arah yang benar
+        enemy.localScale = new Vector3(initScale.x * -(movingRight ? 1 : -1),
             initScale.y, initScale.z);
 
-        currentDirection = _direction;
-
-        //Gerak kearah tersebut
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * _direction * speed
-            , enemy.position.y, enemy.position.z);
+        // Bergerak ke arah yang ditentukan sejauh 'distance'
+        enemy.position += direction * Time.deltaTime * speed * distance;
     }
 
     public int GetCurrentDirection() //untuk mengetahui menghadap mana yang akan digunakan pada script enemyAttack -> enemyProjectile
     {
-        return currentDirection;
+        return movingRight ? 1 : -1;
     }
 }
