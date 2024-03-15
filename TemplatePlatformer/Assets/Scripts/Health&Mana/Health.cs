@@ -48,4 +48,13 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+
+    //Kena cliff / jatoh mati, masih di script health jadi bisa kena enemy jg
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Cliff"))
+            TakeDamage(4);
+    }
 }
