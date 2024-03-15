@@ -37,7 +37,6 @@ public class Mana : MonoBehaviour
 
     public void DecreaseMana(int amount)
     {
-        currentMana -= amount;
         currentMana = Mathf.Clamp(currentMana, 0, maxMana);
         manaBar.SetMana(currentMana);
         if (amount <= currentMana)
@@ -45,8 +44,5 @@ public class Mana : MonoBehaviour
             currentMana -= amount;
             manaBar.slider.value -= amount;
         }
-
     }
-
-
 }
