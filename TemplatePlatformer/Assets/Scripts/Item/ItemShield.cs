@@ -1,30 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class ItemShield: MonoBehaviour
+public class ItemShield: Item
 {
-    private BoxCollider2D boxCollider;
-    private void Awake()
+    protected override Task OnPickup()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
+        Shield shield = player.GetComponentInChildren<Shield>();
+        shield.AddShield();
+        return base.OnPickup();
     }
-
-    void Start()
-    {
-
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        boxCollider.enabled = false;
-
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<Health>().generateHealth();
-            Destroy(gameObject);
-        }
-    }
-
-
 }

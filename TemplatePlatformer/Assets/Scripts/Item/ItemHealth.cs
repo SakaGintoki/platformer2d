@@ -1,33 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ItemHealth : MonoBehaviour
+public class ItemHealth : Item
 {
-    private BoxCollider2D boxCollider;
-    private void Awake()
+    protected override Task OnPickup()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
-    }
-
-    void Start()
-    {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        boxCollider.enabled = false;
-        
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<Health>().generateHealth();
-            Destroy(gameObject);
-        }
-    }
-
-    void Update()
-    {
-        
+        player.GetComponent<Health>().generateHealth();
+        return base.OnPickup();
     }
 }

@@ -27,6 +27,11 @@ public class Shield : MonoBehaviour
 
     }
 
+    public void AddShield()
+    {
+        hasShield = true;
+    }
+
     private void ActivateShield()
     {
         if (hasShield && !isShieldActive)
