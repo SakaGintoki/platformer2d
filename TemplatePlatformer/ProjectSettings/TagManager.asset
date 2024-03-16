@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - Cliff
   - Shield
+  - GM
   layers:
   - Default
   - TransparentFX
