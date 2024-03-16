@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc72e8b415ed7f41b1941588a14bac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 4
+  maxHealth: 3
   currentHealth: 0
   healthBar: {fileID: 6722850901659585904}
   components: []
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f73c60e6337e8248a6f8b112e279511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCooldown: 2
+  attackCooldown: 1
   damage: 1
   range: 4
   firepoint: {fileID: 5629122063454896579}
