@@ -7,13 +7,15 @@ public class Health : MonoBehaviour
     [Header("Health")]
     public int maxHealth = 4;
     public int currentHealth;
-
     public HealthBar healthBar;
     private Animator anim;
     private bool dead;
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+
+    private float timer;
+    public float delayAmount;
 
     void Start()
     {
@@ -42,10 +44,17 @@ public class Health : MonoBehaviour
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
-
+                
                 dead = true;
-
             }
+        }
+    }
+    public void generateHealth()
+    {
+        while (currentHealth != maxHealth)
+        {
+            currentHealth++;
+            healthBar.slider.value = currentHealth;
         }
     }
 
