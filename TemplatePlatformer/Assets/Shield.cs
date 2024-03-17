@@ -36,7 +36,6 @@ public class Shield : MonoBehaviour
     {
         if (hasShield && !isShieldActive)
         {
-            Debug.Log("activate shield");
             isShieldActive = true;
             shieldCollider.enabled = true;
             shieldSprite.enabled = true;

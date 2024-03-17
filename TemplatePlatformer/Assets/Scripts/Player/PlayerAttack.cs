@@ -39,6 +39,7 @@ public class PlayerAttack : MonoBehaviour
         cooldownTimer = 0;
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        Debug.Log(transform.localScale.x);
     }
     private int FindFireball()
     {
@@ -48,10 +49,5 @@ public class PlayerAttack : MonoBehaviour
                 return i;
         }
         return 0;
-    }
-
-    private void ActiveShield()
-    {
-
     }
 }

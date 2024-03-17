@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     [SerializeField] private UnityEvent OnPickupEvent;
     protected GameObject player;
 
+
     private void Awake()
     {
     }
