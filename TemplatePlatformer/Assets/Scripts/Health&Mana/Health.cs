@@ -36,7 +36,6 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             hurt = true;
-            Invoke("backToIdle", 2);
         }
         else
         {
@@ -55,8 +54,8 @@ public class Health : MonoBehaviour
 
     public void backToIdle()
     {
-        anim.SetTrigger("idle");
         hurt = false;
+        anim.SetBool("hurt", false);
     }
 
     public void generateHealth()
