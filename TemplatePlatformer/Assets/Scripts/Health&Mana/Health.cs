@@ -62,4 +62,16 @@ public class Health : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void respawn() //test
+    {
+        dead = false;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+
+        anim.ResetTrigger("die");
+        anim.Play("Idle");
+        foreach (Behaviour component in components)
+            component.enabled = true;
+    }
 }
