@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public HealthBar healthBar;
     private Animator anim;
     private bool dead;
+    private bool hurt;
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
@@ -34,13 +35,15 @@ public class Health : MonoBehaviour
         if (currentHealth > 0)
         {
             anim.SetTrigger("hurt");
+            hurt = true;
+            Invoke("backToIdle", 2);
         }
         else
         {
             if (!dead)
             {
                 anim.SetTrigger("die");
-
+                
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
@@ -49,6 +52,13 @@ public class Health : MonoBehaviour
             }
         }
     }
+
+    public void backToIdle()
+    {
+        anim.SetTrigger("idle");
+        hurt = false;
+    }
+
     public void generateHealth()
     {
         while (currentHealth != maxHealth)
