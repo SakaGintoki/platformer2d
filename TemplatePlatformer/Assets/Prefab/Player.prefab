@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 4627798863386598224}
   - component: {fileID: 770889005063322874}
   - component: {fileID: 3839644864957653643}
+  - component: {fileID: 7147465242146134445}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -349,6 +350,18 @@ MonoBehaviour:
   maxMana: 4
   manaBar: {fileID: 0}
   delayAmount: 2
+--- !u!114 &7147465242146134445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754865261663551109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0096bfa99b4654ca72b6ef2edef7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5774288813137979783
 GameObject:
   m_ObjectHideFlags: 0
