@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Levels/Tutorial.unity
     guid: 2f673fa45626af747b23c0b3d9f5f319
   - enabled: 1
-    path: Assets/Levels/testing.unity
-    guid: 211ce9eb2df947c48b16ec7db1b0344a
+    path: Assets/Levels/Boss.unity
+    guid: 5023e35cca2426649a46e70b972b67fa
   m_configObjects: {}
