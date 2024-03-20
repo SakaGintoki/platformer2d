@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 29.82, y: -1.71, z: 0}
-  m_LocalScale: {x: 2.3198159, y: 2.3198159, z: 2.3198159}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3284406118518049231}
@@ -200,7 +200,9 @@ MonoBehaviour:
   maxHealth: 6
   currentHealth: 0
   healthBar: {fileID: 4792226251818739041}
+  deathsound: {fileID: 0}
   components: []
+  delayAmount: 0
 --- !u!114 &7894693667442711226
 MonoBehaviour:
   m_ObjectHideFlags: 0

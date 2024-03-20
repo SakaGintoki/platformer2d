@@ -12,6 +12,9 @@ public class Health : MonoBehaviour
     private bool dead;
     private bool hurt;
 
+    [Header("Death Sound")]
+    [SerializeField] private AudioClip deathsound;
+
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
 
@@ -48,6 +51,7 @@ public class Health : MonoBehaviour
                     component.enabled = false;
                 
                 dead = true;
+                SoundManager.instance.PlaySound(deathsound);
             }
         }
     }

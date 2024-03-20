@@ -533,6 +533,7 @@ MonoBehaviour:
   maxHealth: 1
   currentHealth: 0
   healthBar: {fileID: 3472148872177565727}
+  deathsound: {fileID: 8300000, guid: b2e563b48f20d964a9972f44ccef670a, type: 3}
   components: []
   delayAmount: 0
 --- !u!95 &2288981555685500184
