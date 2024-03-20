@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6859973345100350216}
   m_Layer: 0
   m_Name: Boss blm selesai
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  projectilePrefab: {fileID: 1567779004603590933, guid: dc2e83a4bfd1e3c49978b78d8c7a9f03, type: 3}
+  projectilePrefab: {fileID: 3821522909499313790, guid: d543cf58f16451040baabf61bc350ce5, type: 3}
 --- !u!114 &6859973345100350216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +622,7 @@ Transform:
   m_GameObject: {fileID: 8283498937966351755}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.603, y: -0.135, z: 0}
+  m_LocalPosition: {x: -0.809, y: -0.128, z: 0}
   m_LocalScale: {x: 1.2932062, y: 1.2932062, z: 0.43106872}
   m_ConstrainProportionsScale: 0
   m_Children: []

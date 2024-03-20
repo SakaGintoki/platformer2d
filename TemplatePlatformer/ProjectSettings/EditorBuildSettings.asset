@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Boss.unity
     guid: 5023e35cca2426649a46e70b972b67fa
+  - enabled: 1
+    path: Assets/Levels/Epilog.unity
+    guid: 980995c6ab94c9e46b0801307bc305e0
   m_configObjects: {}
