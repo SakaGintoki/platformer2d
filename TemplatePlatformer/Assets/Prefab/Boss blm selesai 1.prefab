@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7894693667442711226}
   - component: {fileID: 6859973345100350216}
   m_Layer: 0
-  m_Name: Boss blm selesai
+  m_Name: Boss blm selesai 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
