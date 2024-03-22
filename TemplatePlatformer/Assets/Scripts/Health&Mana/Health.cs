@@ -39,7 +39,6 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             hurt = true;
-            backToIdle();
         }
         else
         {
